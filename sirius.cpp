@@ -35,7 +35,7 @@ int divi(int x)
         if(x%i==0)
         {
             if(x/i==i)
-             c++;
+                c++;
             else
                 c=c+2;
         } 
