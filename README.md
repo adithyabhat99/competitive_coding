@@ -1,4 +1,4 @@
 # CPlus
-C++ programs mostly competitive programming problems <br />
+Competitive programming problems,solved using C++ <br />
 Any improvemts accepted
 
