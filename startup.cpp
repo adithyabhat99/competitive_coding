@@ -54,10 +54,10 @@ int cc(int a[],int n)
 }
 int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */    
-    int n,q,i,left,right,x,max,count;
+    int n,q,i,left,right,x,count;
     cin>>n;
     cin>>q;
-    int a[n],y[10],j;
+    int a[n],y[20];
     for(i=1;i<=n;i++)
     {
         cin>>a[i];
@@ -66,7 +66,7 @@ int main() {
     {
         cin>>left;
         cin>>right;
-        max=0;
+        int max=0;
         for(i=left;i<=right;i++)
         {
             int m=a[i],j=0;
