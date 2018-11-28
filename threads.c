@@ -48,24 +48,25 @@ Refer sample input and output for formatting specifications.
 
 int main()
 {
-	int count, i, f, r;
+	int count, i, f, x;
 	scanf("%d", &count);
 	int calling[count], ideal[count], time = 0;
 	for (i = 0; i < count; i++) scanf("%d", &calling[i]);
 	for (i = 0; i < count; i++) scanf("%d", &ideal[i]);
-	f = 0; r = count - 1;
+	f = 0;
 	while (f < count) {
 	    if (calling[f] == ideal[f]) {
 	        time++;
 	        f++;
 	    }
-	    else {
-	        r = calling[f];
-	        for (i = f + 1; i < count; i++) calling[i - 1] = calling[i];
-	        calling[count - 1] = r;
+	    else { 
+	        x= calling[f];
+	        for (i = f + 1; i < count; i++) 
+			calling[i - 1] = calling[i];
+	        calling[count - 1] = x;
 	        time++;
 	    }
 	}
-	printf("%d", time);
+	printf("%d\n", time);
 	return 0;
 }
