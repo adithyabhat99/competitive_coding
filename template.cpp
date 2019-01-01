@@ -3,6 +3,7 @@
 #include <set>
 #include<iostream>
 #include <utility>
+#include <map>
 #include<algorithm>
 using namespace std;
 bool f(int x,int y)
@@ -63,9 +64,29 @@ void pairs_sets()
     for(auto x:s)
         cout<<x.first<<" "<<x.second<<endl;  //sorted numbers along with thier factorials
 }
+void maps()
+{
+    map <int ,string> m;
+    int n,x; string name;
+    cout<<"Enter number of students\n";
+    cin>>n;
+    cout<<"Enter usn and name\n";
+    while(n--)
+    {
+        cin>>x;
+        cin>>name;
+        m.insert(pair<int,string>(x,name));
+    }
+    cout<<"Details of students:\n";
+    for(auto a:m)
+    {
+        cout<<a.first<<" "<<a.second<<endl;
+    }
+}
 int main()
 {
     vect();
     sets();
     pairs_sets();
+    maps();
 }
