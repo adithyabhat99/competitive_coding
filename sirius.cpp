@@ -29,16 +29,17 @@ Print "YES" without quotes if it is possible to make a good selection otherwise 
 #include <algorithm>
 using namespace std;
 int divi(int x)
-{   
-    int i,c=0;
-    for(i=1;i<=(int)sqrt(x);i++) {
-        if(x%i==0)
+{
+    int i, c = 0;
+    for (i = 1; i <= (int)sqrt(x); i++)
+    {
+        if (x % i == 0)
         {
-            if(x/i==i)
+            if (x / i == i)
                 c++;
             else
-                c=c+2;
-        } 
+                c = c + 2;
+        }
     }
     return c;
 }
@@ -53,41 +54,42 @@ int divi(int x)
     }
     return 1;
 }*/
-int main() {
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
-  int c=0,n,i,diff;
-    int y=-1;
-    cin>>n;
-    int arr[n],m[n];
-    for(i=0;i<n;i++)
-        cin>>arr[i];
-    for(int i=0;i<n;i++)
+int main()
+{
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int c = 0, n, i, diff; //suggestions accepted
+    int y = -1;
+    cin >> n;
+    int arr[n], m[n];
+    for (i = 0; i < n; i++)
+        cin >> arr[i];
+    for (int i = 0; i < n; i++)
     {
-        if((divi(arr[i]))==3)
+        if ((divi(arr[i])) == 3)
         {
             c++;
-            m[++y]=i;
-            if(y==1)
-            { 
-                diff=m[1]-m[0];
-            } 
-            else if(y>1 && m[y]-m[y-1]!=diff) 
-            { 
-                cout<<"NO"<<endl;
-                return 0; 
-            } 
+            m[++y] = i;
+            if (y == 1)
+            {
+                diff = m[1] - m[0];
+            }
+            else if (y > 1 && m[y] - m[y - 1] != diff)
+            {
+                cout << "NO" << endl;
+                return 0;
+            }
             else
-            { 
-                continue; 
-            } 
+            {
+                continue;
+            }
         }
     }
-    
-    if(c>=3 && (n-m[y]+m[0])==diff)
+
+    if (c >= 3 && (n - m[y] + m[0]) == diff)
     {
-        cout<<"YES"<<endl;
+        cout << "YES" << endl;
     }
-    else 
-        cout<<"NO"<<endl;  
+    else
+        cout << "NO" << endl;
     return 0;
 }
