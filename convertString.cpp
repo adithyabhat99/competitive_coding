@@ -36,23 +36,24 @@
         if(m!=n) { 
             return -1; 
         }
+        int count[256];
+        memset(count,0,sizeof(count));
+        for(i=0;i<m;i++)
+            count[a[i]]++;
+        for(i=0;i<n;i++)
+            count[b[i]]--;
+        for(i=0;i<256;i++)
+            if(count[i])
+                return -1;
+
         i=m-1;
         j=n-1;
         while(i>=0 && j>=0){
             while(a[i]!=b[j] && i>=0){
-            	int x=j-1;
-                while(x>=0)
-                {
-                	if(b[x]==a[i] && i>=0)
-                	{
-                		result++;
-                		i--;
-                		break;
-                	}
-                	x--;
-                }
+                result++;
+                i--;
             }
-            if(a[i]==b[j]){
+            if(a[i]==b[j] || i>=0){
                 i--;
                 j--;
             }
