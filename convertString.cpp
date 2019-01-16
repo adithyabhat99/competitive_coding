@@ -40,7 +40,16 @@
         j=n-1;
         while(i>=0 && j>=0){
             while(a[i]!=b[j] && i>=0){
-                result++;
+            	int x=i;
+                while(x>=0)
+                {
+                	if(b[x]==a[i])
+                	{
+                		result++;
+                		break;
+                	}
+                	x--;
+                }
                 i--;
             }
             if(i>=0){
