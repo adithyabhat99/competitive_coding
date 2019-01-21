@@ -1,14 +1,13 @@
 //Given 2 dates,print the number of days between them
-// Note that first date is behind second date
 #include<bits/stdc++.h>
 using namespace std;
 class date
 {
     int d,m,y;
-    public:int DaysMonth(int x){
+    public:int DaysMonth(int x,date ob){
         switch(x){
             case 1:return 31;
-            case 2:if(leap(y)) return 29;
+            case 2:if(leap(ob.y)) return 29;
             else return 28;
             case 3:return 31;
             case 4:return 30;
@@ -38,29 +37,23 @@ class date
         return 0;
     }
     int diff(date ob1,date ob2){
-        int m1=0,m2=0,d1,d2,y1,y2,y=0;
-        for(int i=1;i<ob1.m;i++)
-        {
-            m1+=DaysMonth(i);
+        int m1=0,m2=0,d1,d2,y=0;
+        for(int i=1;i<ob1.m;i++){
+            m1+=DaysMonth(i,ob1);
         }
-        for(int i=1;i<ob2.m;i++)
-        {
-            m2+=DaysMonth(i);
+        for(int i=1;i<ob2.m;i++){
+            m2+=DaysMonth(i,ob2);
         }
-        d1=ob1.d; d2=ob2.d;
-        y1=-((m1+d1)-DaysYear(ob1.y));
-        y2=m2+d2;
-        y+=y1+y2;
-        if(ob1.y==ob2.y && ob1.m==ob2.m) 
-        {
-        m1=m2=y1=y2=0;
-        y=d2-d1;
+        d1=abs((m1+ob1.d)-DaysYear(ob1.y));
+        d2=m2+ob2.d;
+        y+=d1+d2;
+        if(ob1.y==ob2.y && ob1.m==ob2.m) {
+            return abs(ob2.d-ob1.d);
         }
         else if(ob1.y==ob2.y){
-            y1=m1+d1;
-            y2=m2+d2;
-            y=abs(y2-y1);
-            y1=y2=0;
+            d1=m1+ob1.d;
+            d2=m2+ob2.d;
+            return abs(d2-d1);
         }
         for(int i=ob1.y+1;i<ob2.y;i++){
             y+=DaysYear(i);
