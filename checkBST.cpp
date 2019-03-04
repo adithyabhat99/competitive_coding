@@ -15,3 +15,13 @@ bool isBST(Node* root) {
     prev=root;
     return isBST(root->right);
 }
+//one more way!
+//called as isBST(root,INT_MIN,INT_MAX); at beginning
+bool isBST(Node *root,int min,int max){
+    if(!root)
+    return true;
+    if(root->data<min || root->data >max)
+    return false;
+    return (isBS(root->left,min,root->data-1)&&isBS(root->right,root->data+1,max));
+}
+
