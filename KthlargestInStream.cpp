@@ -32,7 +32,7 @@ Output:
 -1 -1 -1 1 2 3
 3 4 
 */
-
+//Better solution is : https://ide.geeksforgeeks.org/F80qlC0Zhy using heaps
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
