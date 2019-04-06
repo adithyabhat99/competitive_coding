@@ -1,4 +1,4 @@
 # CPlus
-Competitive programming problems,solved using C and C++ <br />
+Competitive programming problems,solved using C++ and python <br />
 Any improvemts accepted
 
