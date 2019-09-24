@@ -1,7 +1,7 @@
 /*
 Given a set of positive numbers,
 find if we can partition it into two subsets such that
-the sum of elements in both the subsets is canPartition.
+the sum of elements in both the subsets is equal.
 
 Input: {1, 2, 3, 4}
 Output: True
