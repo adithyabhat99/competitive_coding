@@ -1,5 +1,4 @@
-//https://practice.geeksforgeeks.org/problems/k-distance-from-root/1/?ref=self
-
+// https://practice.geeksforgeeks.org/problems/k-distance-from-root/1/?ref=self
 void printKdistance(Node *root, int k)
 {
   queue<Node*> q;
