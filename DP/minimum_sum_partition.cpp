@@ -1,7 +1,7 @@
-//https://www.geeksforgeeks.org/dynamic-programming-subset-sum-problem/
+//https://practice.geeksforgeeks.org/problems/minimum-sum-partition/0/?ref=self
 #include <iostream>
 using namespace std;
-int subsetSum(int S[],int n,int sum)
+int isSubsetSum(int S[],int n,int sum)
 {
     bool X[n+1][sum+1];
     for(int i=0;i<=n;i++)
@@ -22,16 +22,7 @@ int subsetSum(int S[],int n,int sum)
             }
         }
     }
-    int d;
-    for(int j=sum/2;j>=0;j--)
-    {
-        if(X[n][j])
-        {
-            d=sum-j*2;
-            break;
-        }
-    }
-    return d;
+    return X[n][sum];
 }
 int main() {
 	//code
@@ -46,7 +37,15 @@ int main() {
 	        cin>>S[i];
 	        sum+=S[i];
 	    }
-	    cout<<subsetSum(S,n,sum)<<endl;
+	    for(int i=sum/2;i<=sum;i++)
+	    {
+	        if(isSubsetSum(S,n,i) && isSubsetSum(S,n,sum-i))
+	        {
+	            int x=(i-(sum-i))>=0?i-(sum-i):(sum-i)-i;
+	            cout<<x<<endl;
+	            break;
+	        }
+	    }
 	}
 	return 0;
 }

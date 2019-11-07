@@ -20,6 +20,6 @@ Node* buildTree(int in[],int pre[], int inStart, int inEnd)
     {
         mp[in[i]]=i;
     }
-    int preINdex=0;
+    int preIndex=0;
     return build(in,pre,inStart,inEnd,mp,preIndex);
 }
