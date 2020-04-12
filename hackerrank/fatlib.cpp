@@ -37,12 +37,12 @@ string calc(string s)
 
     int n = numbers.size();
     int value[n][n];
-    string valueult[n][n];
+    string result[n][n];
 
     for (int i = 0; i < n; i++)
     {
         value[i][i] = numbers[i];
-        valueult[i][i] = to_string(numbers[i]);
+        result[i][i] = to_string(numbers[i]);
     }
 
     for (int L = 1; L < n; L++)
@@ -57,13 +57,13 @@ string calc(string s)
                 if (q > value[i][j])
                 {
                     value[i][j] = q;
-                    valueult[i][j] = '(' + valueult[i][k] + operators[k] + valueult[k + 1][j] + ')';
+                    result[i][j] = '(' + result[i][k] + operators[k] + result[k + 1][j] + ')';
                 }
             }
         }
     }
 
-    return valueult[0][n - 1];
+    return result[0][n - 1];
 }
 int main()
 {
