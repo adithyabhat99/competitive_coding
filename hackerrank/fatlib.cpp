@@ -36,34 +36,34 @@ string calc(string s)
     numbers.push_back(atoi(ss.c_str()));
 
     int n = numbers.size();
-    int res[n][n];
-    string resStr[n][n];
+    int value[n][n];
+    string valueult[n][n];
 
     for (int i = 0; i < n; i++)
     {
-        res[i][i] = numbers[i];
-        resStr[i][i] = to_string(numbers[i]);
+        value[i][i] = numbers[i];
+        valueult[i][i] = to_string(numbers[i]);
     }
 
     for (int L = 1; L < n; L++)
     {
-        for (int i = 0; i <= n - L - 1; i++)
+        for (int i = 0; i < n - L; i++)
         {
             int j = i + L;
-            res[i][j] = INT_MIN;
+            value[i][j] = INT_MIN;
             for (int k = i; k < j; k++)
             {
-                int q = calculate(res[i][k], res[k + 1][j], operators[k]);
-                if (q > res[i][j])
+                int q = calculate(value[i][k], value[k + 1][j], operators[k]);
+                if (q > value[i][j])
                 {
-                    res[i][j] = q;
-                    resStr[i][j] = '(' + resStr[i][k] + operators[k] + resStr[k + 1][j] + ')';
+                    value[i][j] = q;
+                    valueult[i][j] = '(' + valueult[i][k] + operators[k] + valueult[k + 1][j] + ')';
                 }
             }
         }
     }
 
-    return resStr[0][n - 1];
+    return valueult[0][n - 1];
 }
 int main()
 {
